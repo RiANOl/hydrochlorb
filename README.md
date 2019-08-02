@@ -99,7 +99,7 @@ will output:
 to_s = "this is not ruby to_s method."
 Object "obj" {
     Array {
-      Boolean = true
+        Boolean = true
     }
 }
 ```

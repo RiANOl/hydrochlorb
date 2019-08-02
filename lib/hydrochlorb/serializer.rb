@@ -14,7 +14,7 @@ class Hydrochlorb::Serializer
 
       case obj
       when Array
-        if obj.all? { |v| v.is_a? Hash }
+        if !obj.empty? && obj.all? { |v| v.is_a? Hash }
           obj.map do |v|
             send(__method__, v, key, indent, depth)
           end.compact.join("\n")

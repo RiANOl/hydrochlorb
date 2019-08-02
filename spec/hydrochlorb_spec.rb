@@ -10,6 +10,7 @@ describe Hydrochlorb do
       it_is_true true
       it_is_false false
       it_is_array [1, -2, 3.3, -4.4, 'bar', nil, true, false]
+      it_is_empty_array []
     end.to_hcl
 
     expect(hcl).to eq <<~EOF.chomp
@@ -21,6 +22,7 @@ describe Hydrochlorb do
       it_is_true = true
       it_is_false = false
       it_is_array = [1, -2, 3.3, -4.4, "bar", true, false]
+      it_is_empty_array = []
     EOF
   end
 

@@ -3,6 +3,9 @@
 Provide a similar way to config HCL (HashiCorp Configuration Language) in ruby.
 And featuring all programming features (variables, iterators, functions, regexp, etc) in ruby.
 
+[![Gem Version](https://badge.fury.io/rb/hydrochlorb.svg)](https://badge.fury.io/rb/hydrochlorb)
+[![Build Status](https://travis-ci.org/RiANOl/hydrochlorb.svg?branch=master)](https://travis-ci.org/RiANOl/hydrochlorb)
+
 ## Installation
 
 Add the following lines to Gemfile:

@@ -82,7 +82,7 @@ Or you also can use the following style to avoid conflicted name or change inden
 
 ```ruby
 builder = Hydrochlorb.build do
-  add :to_s, 'this is not defualt to_s method.'
+  add :to_s, 'this is not ruby to_s method.'
   add :Object, 'obj' do
     add :Array do
       add :Boolean, true
@@ -96,7 +96,7 @@ puts builder.to_hcl(indent: 4)
 will output:
 
 ```hcl
-to_s = "this is not defualt to_s method."
+to_s = "this is not ruby to_s method."
 Object "obj" {
     Array {
       Boolean = true

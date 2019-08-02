@@ -54,7 +54,7 @@ end
 puts builder.to_hcl
 ```
 
-Will output:
+will output:
 
 ```hcl
 it_is_integer = 1
@@ -78,7 +78,7 @@ it_is_object "obj" {
 
 ```
 
-Or you also can use the following style to avoid conflicted name or change indentation:
+And you also can use the following style to avoid conflicted name or change indentation:
 
 ```ruby
 builder = Hydrochlorb.build do

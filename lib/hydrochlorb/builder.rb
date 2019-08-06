@@ -4,6 +4,7 @@ class Hydrochlorb::Builder
   def initialize(options = {}, &block)
     @attributes = {}
     @current = @attributes
+    @context = nil
 
     build(&block) if block_given?
   end
@@ -11,13 +12,19 @@ class Hydrochlorb::Builder
   def build(&block)
     return unless block_given?
 
+    @context = eval('self', block.binding)
+
     instance_eval(&block)
 
     self
   end
 
   def method_missing(method, *args, &block)
-    add(method, *args, &block)
+    if @context and @context.respond_to?(method)
+      @context.send(method, *args, &block)
+    else
+      add(method, *args, &block)
+    end
   end
 
   def add(*args, &block)

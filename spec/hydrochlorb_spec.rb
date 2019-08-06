@@ -180,4 +180,18 @@ describe Hydrochlorb do
       }
     EOF
   end
+
+  it 'can handle method in different context' do
+    def bar
+      'barbar'
+    end
+
+    hcl = Hydrochlorb.build do
+      foo bar
+    end.to_hcl
+
+    expect(hcl).to eq <<~EOF.chomp
+      foo = "barbar"
+    EOF
+  end
 end

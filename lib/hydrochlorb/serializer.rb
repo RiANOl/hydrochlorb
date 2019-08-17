@@ -28,10 +28,10 @@ class Hydrochlorb::Serializer
           k = k.to_s.strip
           k = k.inspect unless k =~ /^\w+$/ and (key.to_s.empty? or not compacted)
 
-          a = send(__method__, v, (compacted ? "#{key} #{k}".strip : k), indent, (compacted ? depth : depth + 1))
+          send(__method__, v, (compacted ? "#{key} #{k}".strip : k), indent, (compacted ? depth : depth + 1))
         end.compact.join("\n")
 
-        compacted ?  str : "#{prefix}#{key} {\n" + (str.empty? ? '' : "#{str}\n" )+ "#{prefix}}"
+        compacted ?  str : "#{prefix}#{key} {\n" + (str.empty? ? '' : "#{str}\n") + "#{prefix}}"
       when Numeric, TrueClass, FalseClass
         (key ? "#{prefix}#{key} = " : '') + obj.inspect
       else

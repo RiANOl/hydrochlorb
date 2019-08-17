@@ -1,3 +1,5 @@
+require 'json'
+
 class Hydrochlorb::Serializer
   class << self
     def serialize(obj, options = {})
@@ -26,16 +28,16 @@ class Hydrochlorb::Serializer
 
         str = obj.map do |k, v|
           k = k.to_s.strip
-          k = k.inspect unless k =~ /^\w+$/ and (key.to_s.empty? or not compacted)
+          k = k.to_json unless k =~ /^\w+$/ and (key.to_s.empty? or not compacted)
 
           send(__method__, v, (compacted ? "#{key} #{k}".strip : k), indent, (compacted ? depth : depth + 1))
         end.compact.join("\n")
 
         compacted ?  str : "#{prefix}#{key} {\n" + (str.empty? ? '' : "#{str}\n") + "#{prefix}}"
       when Numeric, TrueClass, FalseClass
-        (key ? "#{prefix}#{key} = " : '') + obj.inspect
+        (key ? "#{prefix}#{key} = " : '') + obj.to_json
       else
-        (key ? "#{prefix}#{key} = " : '') + obj.to_s.inspect unless obj.nil?
+        (key ? "#{prefix}#{key} = " : '') + obj.to_s.to_json unless obj.nil?
       end
     end
   end

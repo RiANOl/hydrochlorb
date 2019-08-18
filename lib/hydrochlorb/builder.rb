@@ -54,10 +54,6 @@ class Hydrochlorb::Builder
     end
   end
 
-  def to_json
-    @attributes.to_json
-  end
-
   def to_hcl(**options)
     Hydrochlorb::Serializer.serialize(@attributes, **options)
   end

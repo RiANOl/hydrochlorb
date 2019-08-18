@@ -1,5 +1,3 @@
-require 'json'
-
 class Hydrochlorb::Builder
   def initialize(&block)
     @attributes = {}

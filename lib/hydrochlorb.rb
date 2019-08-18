@@ -1,6 +1,6 @@
 module Hydrochlorb
-  def build(*args, &block)
-    Hydrochlorb::Builder.new(*args, &block)
+  def build(&block)
+    Hydrochlorb::Builder.new(&block)
   end
   module_function :build
 end

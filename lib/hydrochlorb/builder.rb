@@ -1,7 +1,7 @@
 require 'json'
 
 class Hydrochlorb::Builder
-  def initialize(options = {}, &block)
+  def initialize(&block)
     @attributes = {}
     @current = @attributes
     @context = nil
@@ -58,7 +58,7 @@ class Hydrochlorb::Builder
     @attributes.to_json
   end
 
-  def to_hcl(*args)
-    Hydrochlorb::Serializer.serialize(@attributes, *args)
+  def to_hcl(**options)
+    Hydrochlorb::Serializer.serialize(@attributes, **options)
   end
 end
